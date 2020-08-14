@@ -7,9 +7,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { InlineSVGModule } from 'ng-inline-svg';
 
 @NgModule({
-  declarations: [
-    AppComponent
-  ],
+  declarations: [AppComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -17,6 +15,6 @@ import { InlineSVGModule } from 'ng-inline-svg';
     InlineSVGModule.forRoot(),
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
