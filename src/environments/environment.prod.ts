@@ -1,3 +1,4 @@
 export const environment = {
-  production: true
+  apiBase: 'https://priv.math98.fr',
+  production: true,
 };
