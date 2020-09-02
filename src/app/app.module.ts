@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -10,6 +10,8 @@ import { HomeComponent } from './views/home/home.component';
 import { TitleComponent } from './shared/title/title.component';
 import { HomePortfolioComponent } from './views/home/home-portfolio/home-portfolio.component';
 import { HomeSkillsComponent } from './views/home/home-skills/home-skills.component';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
+import { ApiInterceptorService } from './services/api-interceptor.service';
 
 @NgModule({
   declarations: [
@@ -25,8 +27,16 @@ import { HomeSkillsComponent } from './views/home/home-skills/home-skills.compon
     AppRoutingModule,
     BrowserAnimationsModule,
     InlineSVGModule.forRoot(),
+    HttpClientModule,
   ],
-  providers: [],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: ApiInterceptorService,
+      multi: true,
+    },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
