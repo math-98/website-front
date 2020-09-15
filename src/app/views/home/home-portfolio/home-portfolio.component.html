@@ -5,7 +5,26 @@
     </app-title>
 
     <div class="row">
-      <app-loader type="ball-fall"></app-loader>
+      <ng-template [ngIf]="posts !== undefined">
+        <div class="alert alert-danger" role="alert" *ngIf="posts.length == 0" style="text-align: center">
+          <i class="fas fa-exclamation-circle"></i>
+          Une erreur est survenue lors de la récupération du portfolio.
+        </div>
+
+        <div class="col-md-6 col-lg-4" *ngFor="let post of posts">
+          <a href="#" class="portfolio-item mx-auto">
+            <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
+              <div class="portfolio-item-caption-content text-center text-white p-2">
+                <strong>{{ post.title }}</strong><br/>
+                {{ post.description }}
+              </div>
+            </div>
+            <img class="img-fluid" src="{{ post.coverUrl }}" alt="{{ post.title }}">
+          </a>
+        </div>
+      </ng-template>
+
+      <app-loader type="ball-fall" *ngIf="posts === undefined"></app-loader>
     </div>
   </div>
 </section>
