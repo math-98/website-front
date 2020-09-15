@@ -5,7 +5,26 @@
     </app-title>
 
     <div class="row">
-      <app-loader type="ball-fall" light></app-loader>
+      <ng-template [ngIf]="languages !== undefined">
+        <div class="alert alert-danger" role="alert" *ngIf="languages.length == 0" style="text-align: center">
+          <i class="fas fa-exclamation-circle"></i>
+          Une erreur est survenue lors de la récupération des compétences.
+        </div>
+
+        <div class="col-lg-6 mb-5" *ngFor="let langElm of languages | keyvalue">
+          <h1>{{ langElm.key }}</h1>
+
+          <div class="row">
+            <div class="icon" *ngFor="let language of langElm.value">
+              <img src="{{ language.iconUrl }}" alt="{{ language.name }}" title="{{ language.name }}"/>
+            </div>
+          </div>
+        </div>
+
+
+      </ng-template>
+
+      <app-loader type="ball-fall" light *ngIf="languages === undefined"></app-loader>
     </div>
   </div>
 </section>
