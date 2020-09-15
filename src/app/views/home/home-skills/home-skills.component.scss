@@ -1,0 +1,18 @@
+.icon {
+  $margin: 15px;
+  $size: 60px;
+
+  width: $size;
+  height: $size;
+  padding: 5px;
+  background-color: white;
+  margin-right: $margin;
+  margin-left: $margin;
+  border-radius: 10px;
+  color: black;
+
+  img {
+    max-width: 100%;
+    max-height: 100%;
+  }
+}
