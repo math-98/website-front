@@ -1,5 +1,6 @@
 import { Moment } from 'moment';
 import * as moment from 'moment';
+import { DevLanguage } from './dev-language';
 
 export class PortfolioPost {
   public id = 0;
@@ -13,6 +14,8 @@ export class PortfolioPost {
   public createdAt: Moment;
   public updatedAt: Moment;
 
+  public languages: Array<DevLanguage>;
+
   constructor(data) {
     this.id = data.id;
     this.slug = data.slug;
@@ -24,6 +27,13 @@ export class PortfolioPost {
     this.ordering = data.ordering;
     this.createdAt = moment(data.created_at);
     this.updatedAt = moment(data.updated_at);
+
+    this.languages = [];
+    if (data.languages !== undefined) {
+      data.languages.forEach((language) => {
+        this.languages.push(new DevLanguage(language));
+      });
+    }
   }
 
   public isMinified(): boolean {

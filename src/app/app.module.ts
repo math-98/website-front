@@ -12,6 +12,7 @@ import { HomePortfolioComponent } from './views/home/home-portfolio/home-portfol
 import { HomeSkillsComponent } from './views/home/home-skills/home-skills.component';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { ApiInterceptorService } from './services/api-interceptor.service';
+import { PortfolioPostComponent } from './views/portfolio-post/portfolio-post.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { ApiInterceptorService } from './services/api-interceptor.service';
     TitleComponent,
     HomePortfolioComponent,
     HomeSkillsComponent,
+    PortfolioPostComponent,
   ],
   imports: [
     BrowserModule,
