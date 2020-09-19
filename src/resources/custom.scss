@@ -8,3 +8,12 @@ a {
 #mainNav .navbar-brand svg {
   height: 45px;
 }
+
+.masthead {
+  background-size: 100%;
+  background-position: 50% 50%;
+
+  .overlay {
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+}
