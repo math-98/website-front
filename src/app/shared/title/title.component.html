@@ -1,0 +1,16 @@
+<h2 class="page-section-heading text-center text-uppercase mb-0"
+  [class.text-white]="light"
+  [class.text-secondary]="!light"
+>
+  <ng-content></ng-content>
+</h2>
+
+<div class="divider-custom"
+  [class.divider-light]="light"
+>
+  <div class="divider-custom-line"></div>
+  <div class="divider-custom-icon">
+    <i class="{{ icon }}"></i>
+  </div>
+  <div class="divider-custom-line"></div>
+</div>
