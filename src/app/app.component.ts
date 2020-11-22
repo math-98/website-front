@@ -44,7 +44,7 @@ export class AppComponent implements OnInit {
         if (event.description) {
           this.seoService.setDescription(event.description);
         }
-        this.seoService.setTag('og:url', this.router.url);
+        this.seoService.setTag('og:url', location.origin + this.router.url);
 
         if (event.social_image) {
           this.seoService.setSocialImages(event.social_image);
