@@ -19,7 +19,7 @@ export class SeoService {
     this.setTag('og:site_name', 'math-98');
     this.setTag('og:type', 'website');
 
-    this.setSocialImages('img/square-root.jpg');
+    this.setSocialImages(location.origin + 'img/avatar.png');
     this.setTag('og:image:alt', 'logo');
   }
 
@@ -68,7 +68,6 @@ export class SeoService {
   }
 
   setSocialImages(url: string): void {
-    this.setTag('twitter:image', url);
     this.setTag('og:image', url);
   }
 }
