@@ -1,13 +1,13 @@
 <section class="page-section bg-primary text-white mb-0" id="about">
   <div class="container">
-    <app-title icon="fas fa-cog" light=true>
+    <app-title [icon]="fasCog" light>
       Compétences
     </app-title>
 
     <div class="row">
       <ng-template [ngIf]="languages !== undefined">
         <div class="alert alert-danger" role="alert" *ngIf="languages.length == 0" style="text-align: center">
-          <i class="fas fa-exclamation-circle"></i>
+          <fa-icon [icon]="fasExclamationCircle"></fa-icon>
           Une erreur est survenue lors de la récupération des compétences.
         </div>
 

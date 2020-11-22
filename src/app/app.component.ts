@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { filter, map, mergeMap } from 'rxjs/operators';
 import { SeoService } from './services/seo.service';
+import { faBars, faChevronUp } from '@fortawesome/free-solid-svg-icons';
+import { faGithub } from '@fortawesome/free-brands-svg-icons';
 
 @Component({
   selector: 'app-root',
@@ -13,6 +15,9 @@ export class AppComponent implements OnInit {
   private router: Router;
   private activatedRoute: ActivatedRoute;
   private seoService: SeoService;
+  public fasBars = faBars;
+  public fabGithub = faGithub;
+  public fasChevronUp = faChevronUp;
 
   constructor(
     router: Router,
