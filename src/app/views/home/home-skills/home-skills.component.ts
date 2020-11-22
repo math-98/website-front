@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DevService } from '../../../services/dev.service';
-import { DevLanguage } from '../../../models/dev-language';
+import { faCog, faExclamationCircle } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-home-skills',
@@ -10,6 +10,8 @@ import { DevLanguage } from '../../../models/dev-language';
 export class HomeSkillsComponent implements OnInit {
   private devService: DevService;
   public languages: object;
+  public fasCog = faCog;
+  public fasExclamationCircle = faExclamationCircle;
 
   constructor(devService: DevService) {
     this.devService = devService;

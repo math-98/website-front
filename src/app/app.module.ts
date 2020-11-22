@@ -13,6 +13,7 @@ import { HomeSkillsComponent } from './views/home/home-skills/home-skills.compon
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { ApiInterceptorService } from './services/api-interceptor.service';
 import { PortfolioPostComponent } from './views/portfolio-post/portfolio-post.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import { PortfolioPostComponent } from './views/portfolio-post/portfolio-post.co
     BrowserAnimationsModule,
     InlineSVGModule.forRoot(),
     HttpClientModule,
+    FontAwesomeModule,
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   providers: [

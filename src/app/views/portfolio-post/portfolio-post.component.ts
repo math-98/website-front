@@ -3,6 +3,7 @@ import { PortfolioPost } from '../../models/portfolio-post';
 import { PortfolioService } from '../../services/portfolio.service';
 import { ActivatedRoute } from '@angular/router';
 import { SeoService } from '../../services/seo.service';
+import { faTools } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-portfolio-post',
@@ -15,6 +16,7 @@ export class PortfolioPostComponent implements OnInit {
   private portfolioService: PortfolioService;
   private route: ActivatedRoute;
   private seoService: SeoService;
+  public fasTools = faTools;
 
   constructor(
     portfolioService: PortfolioService,

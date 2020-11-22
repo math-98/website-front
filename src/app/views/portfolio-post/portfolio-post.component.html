@@ -9,8 +9,8 @@
 
       <h5>
         <span class="badge bg-warning text-dark p-2" *ngIf="post.wip">
-            <i class="fas fa-tools"></i>
-            En travaux
+          <fa-icon [icon]="fasTools"></fa-icon>
+          En travaux
         </span>
 
         <span class="badge bg-light text-dark p-2 ml-2" *ngFor="let language of post.languages">

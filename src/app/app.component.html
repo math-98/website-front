@@ -8,7 +8,7 @@
             type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive"
             aria-expanded="false" aria-label="Toggle navigation">
       Menu
-      <i class="fas fa-bars"></i>
+      <fa-icon [icon]="fasBars"></fa-icon>
     </button>
     <div class="collapse navbar-collapse" id="navbarResponsive">
       <ul class="navbar-nav ml-auto">
@@ -24,7 +24,7 @@
   <div class="container">
     <small>
       <a href="https://github.com/math-98/website-front" target="_blank">
-        <i class="fab fa-github"></i>
+        <fa-icon [icon]="fabGithub"></fa-icon>
         Code source
       </a><br/>
       Copyright &copy; math-98 - {{ currentDate | date:'yyyy' }}
@@ -34,6 +34,6 @@
 
 <div class="scroll-to-top d-lg-none position-fixed">
   <a class="js-scroll-trigger d-block text-center text-white rounded" href="#page-top">
-    <i class="fa fa-chevron-up"></i>
+    <fa-icon [icon]="fasChevronUp"></fa-icon>
   </a>
 </div>

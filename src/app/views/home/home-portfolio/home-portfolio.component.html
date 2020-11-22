@@ -1,13 +1,13 @@
 <section class="page-section portfolio" id="portfolio">
   <div class="container">
-    <app-title icon="fas fa-star">
+    <app-title [icon]="fasStar">
       Portfolio
     </app-title>
 
     <div class="row">
       <ng-template [ngIf]="posts !== undefined">
         <div class="alert alert-danger" role="alert" *ngIf="posts.length == 0" style="text-align: center">
-          <i class="fas fa-exclamation-circle"></i>
+          <fa-icon [icon]="fasExclamationCircle"></fa-icon>
           Une erreur est survenue lors de la récupération du portfolio.
         </div>
 
