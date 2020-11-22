@@ -1,6 +1,6 @@
 <div class="text-center">
-  <div class="la-3x mx-auto mb-3" [class.la-dark]="!light" [ngClass]="'la-' + type">
-    <div *ngFor="let num of iterable"></div>
+  <div class="spinner-{{ type }} text-{{ color }} mb-1" style="width: 3rem; height: 3rem;" role="status">
+    <span class="visually-hidden">Chargement...</span>
   </div>
 
   <p>Chargement...</p>
