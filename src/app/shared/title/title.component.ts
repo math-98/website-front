@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { BooleanInput } from 'ng-boolean-input';
+import { IconProp } from '@fortawesome/fontawesome-svg-core';
 
 @Component({
   selector: 'app-title',
@@ -8,5 +9,5 @@ import { BooleanInput } from 'ng-boolean-input';
 })
 export class TitleComponent {
   @BooleanInput @Input() light;
-  @Input() icon = '';
+  @Input() icon: IconProp;
 }
