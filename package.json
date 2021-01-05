@@ -30,7 +30,7 @@
     "html-webpack-plugin": "4.5.0",
     "moment": "2.29.1",
     "ng-boolean-input": "1.4.0",
-    "ng-inline-svg": "11.0.1",
+    "ng-inline-svg": "11.0.2",
     "node-sass": "5.0.0",
     "popper.js": "1.16.1",
     "rxjs": "6.6.3",
