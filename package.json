@@ -28,7 +28,7 @@
     "bootstrap": "5.0.0-beta1",
     "bufferutil": "4.0.3",
     "fibers": "5.0.0",
-    "html-webpack-plugin": "4.5.1",
+    "html-webpack-plugin": "5.1.0",
     "moment": "2.29.1",
     "ng-boolean-input": "1.4.0",
     "ng-inline-svg": "11.0.2",
