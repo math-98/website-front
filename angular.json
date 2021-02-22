@@ -24,8 +24,9 @@
             "tsConfig": "tsconfig.app.json",
             "aot": true,
             "assets": [
-              "src/favicon.ico",
-              "src/img"
+              "src/img",
+              "src/robots.txt",
+              "src/sitemap.xml"
             ],
             "styles": [
               "./node_modules/bootstrap/dist/css/bootstrap.min.css",
