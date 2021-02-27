@@ -8,14 +8,11 @@ import { faCog, faExclamationCircle } from '@fortawesome/free-solid-svg-icons';
   styleUrls: ['./home-skills.component.scss'],
 })
 export class HomeSkillsComponent implements OnInit {
-  private devService: DevService;
   public languages: object;
   public fasCog = faCog;
   public fasExclamationCircle = faExclamationCircle;
 
-  constructor(devService: DevService) {
-    this.devService = devService;
-  }
+  constructor(private devService: DevService) {}
 
   ngOnInit(): void {
     this.languages = undefined;
