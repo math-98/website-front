@@ -18,6 +18,7 @@ const routes: Routes = [
     data: {
       title: 'Portfolio',
       description: '',
+      analytics: false,
     },
   },
 ];

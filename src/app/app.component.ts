@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 import { filter, map, mergeMap } from 'rxjs/operators';
 import { SeoService } from './services/seo.service';
 import { faBars, faChevronUp } from '@fortawesome/free-solid-svg-icons';
@@ -25,6 +25,9 @@ export class AppComponent implements OnInit {
   ngOnInit(): void {
     this.router.events
       .pipe(
+        filter((event) => {
+          return event instanceof NavigationEnd;
+        }),
         map(() => this.activatedRoute),
         map((route) => {
           while (route.firstChild) {
@@ -36,20 +39,7 @@ export class AppComponent implements OnInit {
         mergeMap((route) => route.data)
       )
       .subscribe((event) => {
-        this.seoService.reset();
-
-        this.seoService.setPageTitle(event.title);
-        if (event.description) {
-          this.seoService.setDescription(event.description);
-        }
-        this.seoService.setTag('og:url', location.origin + this.router.url);
-
-        if (event.social_image) {
-          this.seoService.setSocialImages(event.social_image);
-        }
-        if (event.social_image_alt) {
-          this.seoService.setTag('og:image:alt', event.social_image_alt);
-        }
+        this.seoService.update(event, event.analytics);
       });
   }
 }

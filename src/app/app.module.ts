@@ -14,6 +14,7 @@ import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { ApiInterceptorService } from './services/api-interceptor.service';
 import { PortfolioPostComponent } from './views/portfolio-post/portfolio-post.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { MatomoModule } from 'ngx-matomo';
 
 @NgModule({
   declarations: [
@@ -32,6 +33,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     InlineSVGModule.forRoot(),
     HttpClientModule,
     FontAwesomeModule,
+    MatomoModule,
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   providers: [

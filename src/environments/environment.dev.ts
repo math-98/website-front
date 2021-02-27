@@ -1,6 +1,11 @@
 export const environment = {
   apiBase: 'http://localhost',
   production: false,
+  matomo: {
+    enabled: false,
+    url: '',
+    siteId: 0,
+  },
 };
 
 /*
