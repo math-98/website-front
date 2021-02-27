@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { PortfolioPost } from '../../models/portfolio-post';
 import { PortfolioService } from '../../services/portfolio.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { SeoService } from '../../services/seo.service';
 import { faTools } from '@fortawesome/free-solid-svg-icons';
 
@@ -35,9 +35,12 @@ export class PortfolioPostComponent implements OnInit {
         if (post === undefined) {
           console.error('Post returned by API is undefined!');
         } else {
-          this.seoService.setPageTitle(post.title);
-          this.seoService.setDescription(post.description);
-          this.seoService.setSocialImages(post.coverUrl);
+          this.seoService.update({
+            title: post.title,
+            description: post.description,
+            image_url: post.coverUrl,
+            image_alt: post.title + '" cover',
+          });
         }
       })
       .catch((err) => {
