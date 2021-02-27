@@ -14,6 +14,7 @@ import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { ApiInterceptorService } from './services/api-interceptor.service';
 import { PortfolioPostComponent } from './views/portfolio-post/portfolio-post.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { PageHeadComponent } from './shared/page-head/page-head.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     HomePortfolioComponent,
     HomeSkillsComponent,
     PortfolioPostComponent,
+    PageHeadComponent,
   ],
   imports: [
     BrowserModule,
