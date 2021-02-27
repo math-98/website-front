@@ -5,13 +5,7 @@ import { Meta, Title } from '@angular/platform-browser';
   providedIn: 'root',
 })
 export class SeoService {
-  private meta: Meta;
-  private title: Title;
-
-  constructor(meta: Meta, title: Title) {
-    this.meta = meta;
-    this.title = title;
-  }
+  constructor(private meta: Meta, private title: Title) {}
 
   reset(): void {
     this.setTag('twitter:card', 'summary');

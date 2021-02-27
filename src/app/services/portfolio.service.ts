@@ -6,11 +6,9 @@ import { PortfolioPost } from '../models/portfolio-post';
   providedIn: 'root',
 })
 export class PortfolioService {
-  private http: HttpClient;
   private posts: Array<PortfolioPost>;
 
-  constructor(http: HttpClient) {
-    this.http = http;
+  constructor(private http: HttpClient) {
     this.posts = [];
   }
 
