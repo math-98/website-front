@@ -12,22 +12,15 @@ import { faGithub } from '@fortawesome/free-brands-svg-icons';
 })
 export class AppComponent implements OnInit {
   public currentDate = new Date();
-  private router: Router;
-  private activatedRoute: ActivatedRoute;
-  private seoService: SeoService;
   public fasBars = faBars;
   public fabGithub = faGithub;
   public fasChevronUp = faChevronUp;
 
   constructor(
-    router: Router,
-    activatedRoute: ActivatedRoute,
-    seoService: SeoService
-  ) {
-    this.router = router;
-    this.activatedRoute = activatedRoute;
-    this.seoService = seoService;
-  }
+    private router: Router,
+    private activatedRoute: ActivatedRoute,
+    private seoService: SeoService
+  ) {}
 
   ngOnInit(): void {
     this.router.events
