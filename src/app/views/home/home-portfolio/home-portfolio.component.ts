@@ -10,13 +10,10 @@ import { faExclamationCircle, faStar } from '@fortawesome/free-solid-svg-icons';
 })
 export class HomePortfolioComponent implements OnInit {
   public posts: Array<PortfolioPost>;
-  private portfolioService: PortfolioService;
   public fasStar = faStar;
   public fasExclamationCircle = faExclamationCircle;
 
-  constructor(portfolioService: PortfolioService) {
-    this.portfolioService = portfolioService;
-  }
+  constructor(private portfolioService: PortfolioService) {}
 
   ngOnInit(): void {
     this.posts = undefined;
