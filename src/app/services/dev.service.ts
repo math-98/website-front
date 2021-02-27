@@ -6,12 +6,9 @@ import { DevLanguage } from '../models/dev-language';
   providedIn: 'root',
 })
 export class DevService {
-  private http: HttpClient;
   private languages: object;
 
-  constructor(http: HttpClient) {
-    this.http = http;
-  }
+  constructor(private http: HttpClient) {}
 
   public async listLanguages(): Promise<any> {
     return new Promise((resolve, reject) => {

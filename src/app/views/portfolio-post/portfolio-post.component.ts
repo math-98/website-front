@@ -13,20 +13,13 @@ import { faTools } from '@fortawesome/free-solid-svg-icons';
 })
 export class PortfolioPostComponent implements OnInit {
   public post: PortfolioPost;
-  private portfolioService: PortfolioService;
-  private route: ActivatedRoute;
-  private seoService: SeoService;
   public fasTools = faTools;
 
   constructor(
-    portfolioService: PortfolioService,
-    seoService: SeoService,
-    route: ActivatedRoute
-  ) {
-    this.seoService = seoService;
-    this.portfolioService = portfolioService;
-    this.route = route;
-  }
+    private portfolioService: PortfolioService,
+    private seoService: SeoService,
+    private route: ActivatedRoute
+  ) {}
 
   ngOnInit(): void {
     let slug;
