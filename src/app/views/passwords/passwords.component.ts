@@ -3,6 +3,7 @@ import { faKey } from '@fortawesome/free-solid-svg-icons';
 import { FormControl } from '@angular/forms';
 import * as bcrypt from 'bcryptjs';
 import * as md5 from 'md5';
+import * as sha1 from 'sha1';
 
 @Component({
   selector: 'app-passwords',
@@ -19,6 +20,7 @@ export class PasswordsComponent {
   algorithms = [
     { id: 'bcrypt', text: 'bcrypt' },
     { id: 'md5', text: 'md5' },
+    { id: 'sha1', text: 'sha1' },
   ];
 
   selectedItems = [];
@@ -51,6 +53,12 @@ export class PasswordsComponent {
         case 'md5':
           value = {
             password: md5(this.password)
+          }
+          break;
+
+        case 'sha1':
+          value = {
+            password: sha1(this.password)
           }
           break;
       }
