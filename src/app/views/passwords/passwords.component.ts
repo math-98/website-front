@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { faKey } from '@fortawesome/free-solid-svg-icons';
 import { FormControl } from '@angular/forms';
+import * as bcrypt from 'bcryptjs';
 
 @Component({
   selector: 'app-passwords',
@@ -14,7 +15,9 @@ export class PasswordsComponent {
 
   hashed = [];
   promises: { [key: string]: Promise<any> } = {};
-  algorithms = [];
+  algorithms = [
+    { id: 'bcrypt', text: 'bcrypt' },
+  ];
 
   selectedItems = [];
   dropdownSettings = {
@@ -31,7 +34,18 @@ export class PasswordsComponent {
         salt: undefined
       };
 
-      switch (algo.id) {}
+      switch (algo.id) {
+        case 'bcrypt':
+          value = new Promise(resolve => {
+            bcrypt.hash(this.password, 10)
+                  .then((hash) => {
+                    resolve({
+                      password: hash
+                    });
+                  });
+          });
+          break;
+      }
       this.promises[algo.id] = Promise.resolve(value);
     });
 
