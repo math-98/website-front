@@ -15,6 +15,9 @@ import { ApiInterceptorService } from './services/api-interceptor.service';
 import { PortfolioPostComponent } from './views/portfolio-post/portfolio-post.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { PageHeadComponent } from './shared/page-head/page-head.component';
+import { PasswordsComponent } from './views/passwords/passwords.component';
+import { FormsModule } from '@angular/forms';
+import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
 
 @NgModule({
   declarations: [
@@ -26,6 +29,7 @@ import { PageHeadComponent } from './shared/page-head/page-head.component';
     HomeSkillsComponent,
     PortfolioPostComponent,
     PageHeadComponent,
+    PasswordsComponent,
   ],
   imports: [
     BrowserModule,
@@ -34,6 +38,8 @@ import { PageHeadComponent } from './shared/page-head/page-head.component';
     InlineSVGModule.forRoot(),
     HttpClientModule,
     FontAwesomeModule,
+    FormsModule,
+    NgMultiSelectDropDownModule.forRoot(),
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   providers: [
