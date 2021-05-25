@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { faKey } from '@fortawesome/free-solid-svg-icons';
 import { FormControl } from '@angular/forms';
 import * as bcrypt from 'bcryptjs';
+import * as md5 from 'md5';
 
 @Component({
   selector: 'app-passwords',
@@ -17,6 +18,7 @@ export class PasswordsComponent {
   promises: { [key: string]: Promise<any> } = {};
   algorithms = [
     { id: 'bcrypt', text: 'bcrypt' },
+    { id: 'md5', text: 'md5' },
   ];
 
   selectedItems = [];
@@ -44,6 +46,12 @@ export class PasswordsComponent {
                     });
                   });
           });
+          break;
+
+        case 'md5':
+          value = {
+            password: md5(this.password)
+          }
           break;
       }
       this.promises[algo.id] = Promise.resolve(value);
