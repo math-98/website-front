@@ -4,7 +4,7 @@ import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { InlineSVGModule } from 'ng-inline-svg';
+import { InlineSVGModule } from 'ng-inline-svg-2';
 import { LoaderComponent } from './shared/loader/loader.component';
 import { HomeComponent } from './views/home/home.component';
 import { TitleComponent } from './shared/title/title.component';
@@ -13,11 +13,11 @@ import { HomeSkillsComponent } from './views/home/home-skills/home-skills.compon
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { ApiInterceptorService } from './services/api-interceptor.service';
 import { PortfolioPostComponent } from './views/portfolio-post/portfolio-post.component';
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { PageHeadComponent } from './shared/page-head/page-head.component';
 import { PasswordsComponent } from './views/passwords/passwords.component';
 import { FormsModule } from '@angular/forms';
 import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
   declarations: [
