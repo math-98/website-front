@@ -10,23 +10,27 @@ export class SeoService {
   reset(): void {
     this.setTag('twitter:card', 'summary');
     this.setTag('twitter:author', '@mathieu998');
-    this.setTag('og:site_name', 'math-98');
+    this.setTag('og:site_name', 'Mathieu SERVIERE');
     this.setTag('og:type', 'website');
 
-    this.setSocialImages(location.origin + 'img/avatar.png');
+    this.setSocialImages(location.origin + 'img/photo.jpg');
     this.setTag('og:image:alt', 'logo');
   }
 
   getPageTitle(): string {
     const fullTitle = this.getFullTitle();
-    if (fullTitle.endsWith(' - math-98')) {
-      return fullTitle.substr(0, fullTitle.length - 10);
+    if (fullTitle.endsWith(' - Mathieu SERVIERE')) {
+      return fullTitle.substring(0, fullTitle.length - 19);
     }
     return fullTitle;
   }
 
   setPageTitle(value: string): void {
-    const fullTitle = value + ' - math-98';
+    if (!value) {
+      return;
+    }
+
+    const fullTitle = value + ' - Mathieu SERVIERE';
     this.title.setTitle(fullTitle);
     this.setTag('og:title', fullTitle);
   }
