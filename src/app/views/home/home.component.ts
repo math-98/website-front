@@ -10,6 +10,7 @@ import {
   faTwitter,
 } from '@fortawesome/free-brands-svg-icons';
 import { environment } from 'src/environments/environment';
+import { ViewportScroller } from '@angular/common';
 
 @Component({
   selector: 'app-home',
@@ -29,4 +30,10 @@ export class HomeComponent {
   public fabDiscord = faDiscord;
 
   public photo_url = environment.apiBase + '/storage/photo.jpg';
+
+  constructor(private viewportScroller: ViewportScroller) {}
+
+  scroll(section): void {
+    this.viewportScroller.scrollToAnchor(section);
+  }
 }

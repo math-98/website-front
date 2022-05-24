@@ -1,26 +1,24 @@
-<nav class="navbar navbar-expand-lg bg-secondary text-uppercase fixed-top" id="mainNav">
+<nav class="navbar navbar-expand bg-secondary text-uppercase fixed-top" id="mainNav">
   <div class="container">
     <a class="navbar-brand" routerLink="/">Mathieu SERVIERE</a>
-    <button class="navbar-toggler navbar-toggler-right text-uppercase font-weight-bold bg-primary text-white rounded"
-            type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive"
-            aria-expanded="false" aria-label="Toggle navigation">
-      Menu
-      <fa-icon [icon]="fasBars"></fa-icon>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarResponsive">
-      <ul class="navbar-nav ml-auto">
-        <li class="nav-item mx-0 mx-lg-1">
-          <a class="nav-link py-3 px-0 px-lg-3 rounded" routerLink="/">
-            <i class="fas fa-home"></i> Accueil
-          </a>
-        </li>
-        <li class="nav-item mx-0 mx-lg-1">
-          <a class="nav-link py-3 px-0 px-lg-3 rounded" routerLink="/passwords">
-            <i class="fas fa-home"></i> Chiffrer un mot de passe
-          </a>
-        </li>
-      </ul>
-    </div>
+
+    <ul class="navbar-nav ms-auto">
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          <span class="d-none d-lg-inline">Outils</span>
+          <span class="d-lg-none" title="Outils">
+            <fa-icon [icon]="fasScrewdriverWrench"></fa-icon>
+          </span>
+        </a>
+        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+          <li>
+            <a class="dropdown-item" routerLink="/passwords">
+              Chiffrer un mot de passe
+            </a>
+          </li>
+        </ul>
+      </li>
+    </ul>
   </div>
 </nav>
 
@@ -38,9 +36,3 @@
     </small>
   </div>
 </section>
-
-<div class="scroll-to-top d-lg-none position-fixed">
-  <a class="js-scroll-trigger d-block text-center text-white rounded" href="#page-top">
-    <fa-icon [icon]="fasChevronUp"></fa-icon>
-  </a>
-</div>
