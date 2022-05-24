@@ -1,18 +1,18 @@
-<header class="masthead bg-primary text-white text-center">
+<header id="top" class="masthead bg-primary text-white text-center">
   <div class="container d-flex align-items-center flex-column">
     <img class="masthead-avatar rounded-circle mb-5" src="{{ photo_url }}">
-    <h1 class="masthead-heading text-uppercase mb-0">Mathieu SERVIERE</h1>
+    <h1 class="masthead-heading mb-0">Mathieu SERVIERE</h1>
     <p class="masthead-subheading font-weight-light mb-0">Web-développeur</p>
 
     <div class="text-center mt-4">
-      <a class="btn btn-xl btn-outline-light js-scroll-trigger me-1" href="#portfolio">
+      <button class="btn btn-xl btn-outline-light me-1" (click)="scroll('portfolio')">
         <fa-icon [icon]="fasStar" class="mr-2"></fa-icon>
         Portfolio
-      </a>
-      <a class="btn btn-xl btn-outline-light js-scroll-trigger" href="#about">
+      </button>
+      <button class="btn btn-xl btn-outline-light" (click)="scroll('about')">
         <fa-icon [icon]="fasCog" class="mr-2"></fa-icon>
         Compétences
-      </a>
+      </button>
     </div>
   </div>
 </header>

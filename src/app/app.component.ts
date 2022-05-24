@@ -2,8 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { filter, map, mergeMap } from 'rxjs/operators';
 import { SeoService } from './services/seo.service';
-import { faBars, faChevronUp } from '@fortawesome/free-solid-svg-icons';
+import {
+  faScrewdriverWrench,
+  faChevronUp,
+} from '@fortawesome/free-solid-svg-icons';
 import { faGithub } from '@fortawesome/free-brands-svg-icons';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-root',
@@ -12,7 +16,7 @@ import { faGithub } from '@fortawesome/free-brands-svg-icons';
 })
 export class AppComponent implements OnInit {
   public currentDate = new Date();
-  public fasBars = faBars;
+  public fasScrewdriverWrench = faScrewdriverWrench;
   public fabGithub = faGithub;
   public fasChevronUp = faChevronUp;
 
