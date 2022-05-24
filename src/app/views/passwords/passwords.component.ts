@@ -34,52 +34,57 @@ export class PasswordsComponent {
   onSubmit() {
     this.selectedItems.forEach((algo) => {
       let value: any = {
-        password: undefined,
-        salt: undefined
+        hash: undefined,
+        salt: undefined,
       };
 
       switch (algo.id) {
         case 'bcrypt':
-          value = new Promise(resolve => {
-            bcrypt.hash(this.password, 10)
-                  .then((hash) => {
-                    resolve({
-                      password: hash
-                    });
-                  });
+          value = new Promise((resolve) => {
+            bcrypt.hash(this.password, 10).then((hash) => {
+              resolve({
+                hash,
+              });
+            });
           });
           break;
 
         case 'md5':
           value = {
-            password: md5(this.password)
-          }
+            hash: md5(this.password),
+          };
           break;
 
         case 'sha1':
           value = {
-            password: sha1(this.password)
-          }
+            hash: sha1(this.password),
+          };
           break;
       }
       this.promises[algo.id] = Promise.resolve(value);
     });
 
     let keys = Object.keys(this.promises);
-    Promise.all(Object.values(this.promises))
-           .then((results) => {
-             results.forEach((res, index) => {
-               let name = this.algorithms.find((elm) => {
-                 return elm.id == keys[index];
-               }).text;
-               this.hashed.push({
-                 name: name,
-                 password: res.password,
-                 salt: res.salt
-               });
-             });
-           });
+    Promise.all(Object.values(this.promises)).then((results) => {
+      this.promises = {};
 
-    this.promises = {};
+      const localHashes = {
+        password: this.password,
+        hashes: [],
+      };
+      this.password = '';
+
+      results.forEach((res, index) => {
+        let name = this.algorithms.find((elm) => {
+          return elm.id == keys[index];
+        }).text;
+        localHashes.hashes.push({
+          name: name,
+          hash: res.hash,
+          salt: res.salt,
+        });
+      });
+      this.hashed.unshift(localHashes);
+    });
   }
 }
