@@ -9,6 +9,7 @@ import {
   faSteamSymbol,
   faTwitter,
 } from '@fortawesome/free-brands-svg-icons';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-home',
@@ -26,4 +27,6 @@ export class HomeComponent {
   public fabGitlab = faGitlab;
   public fabSteamSymbol = faSteamSymbol;
   public fabDiscord = faDiscord;
+
+  public photo_url = environment.apiBase + '/storage/photo.jpg';
 }

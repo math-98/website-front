@@ -1,2 +1,2 @@
 Sitemap: https://priv.math98.fr/api/v1/portfolio/sitemap
-Sitemap: https://math98.fr/sitemap.xml
+Sitemap: https://serviere.dev/sitemap.xml
