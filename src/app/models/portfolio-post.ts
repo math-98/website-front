@@ -1,6 +1,7 @@
 import { Moment } from 'moment';
 import * as moment from 'moment';
 import { DevLanguage } from './dev-language';
+import { Link } from './link';
 
 export class PortfolioPost {
   public id = 0;
@@ -9,12 +10,15 @@ export class PortfolioPost {
   public description = '';
   public text = '';
   public coverUrl = '';
-  public wip = false;
-  public ordering = 0;
+  public starred = false;
+  public statusColor = '';
+  public statusText = '';
+  public tags = [];
   public createdAt: Moment;
   public updatedAt: Moment;
 
   public languages: Array<DevLanguage>;
+  public links: Link[];
 
   constructor(data) {
     this.id = data.id;
@@ -23,8 +27,10 @@ export class PortfolioPost {
     this.description = data.description;
     this.text = data.text;
     this.coverUrl = data.cover_url;
-    this.wip = data.wip;
-    this.ordering = data.ordering;
+    this.starred = data.starred == 1;
+    this.statusColor = data.status_color;
+    this.statusText = data.status_text;
+    this.tags = data.tags.map((elm) => elm.name);
     this.createdAt = moment(data.created_at);
     this.updatedAt = moment(data.updated_at);
 
@@ -34,9 +40,20 @@ export class PortfolioPost {
         this.languages.push(new DevLanguage(language));
       });
     }
+
+    this.links = [];
+    if (data.links) {
+      data.links.forEach((elm) => {
+        this.links.push(new Link(elm));
+      });
+    }
   }
 
   public isMinified(): boolean {
     return this.text === undefined;
+  }
+
+  public static statusTextColor(bgColor: string): string {
+    return ['warning', 'info', 'light'].includes(bgColor) ? 'dark' : 'light';
   }
 }

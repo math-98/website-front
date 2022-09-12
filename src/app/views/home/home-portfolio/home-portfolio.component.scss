@@ -1,3 +1,18 @@
+.btn-outline-primary {
+  &.active,
+  &:hover {
+    color: #fff;
+  }
+}
+
+#starCategoryBtn.active fa-icon {
+  color: yellow;
+}
+
+.portfolio-item {
+  margin-bottom: 1rem;
+}
+
 .portfolio-item-caption-content {
   font-size: 1.3rem !important;
 

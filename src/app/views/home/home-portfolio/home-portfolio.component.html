@@ -4,27 +4,49 @@
       Portfolio
     </app-title>
 
-    <div class="row">
-      <ng-template [ngIf]="posts !== undefined">
-        <div class="alert alert-danger" role="alert" *ngIf="posts.length == 0" style="text-align: center">
-          <fa-icon [icon]="fasExclamationCircle"></fa-icon>
-          Une erreur est survenue lors de la récupération du portfolio.
-        </div>
+    <ng-template [ngIf]="postCategories !== undefined">
+      <div class="alert alert-danger" role="alert" *ngIf="postCategories.length == 0" style="text-align: center">
+        <fa-icon [icon]="fasExclamationCircle"></fa-icon>
+        Une erreur est survenue lors de la récupération du portfolio.
+      </div>
 
-        <div class="col-md-6 col-lg-4" *ngFor="let post of posts">
-          <a [routerLink]="['/portfolio/' + post.slug]" class="portfolio-item mx-auto">
-            <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
-              <div class="portfolio-item-caption-content text-center text-white p-2">
-                <strong>{{ post.title }}</strong><br/>
-                {{ post.description }}
-              </div>
-            </div>
-            <img class="img-fluid" src="{{ post.coverUrl }}" alt="{{ post.title }}">
-          </a>
-        </div>
-      </ng-template>
+      <div class="text-center mb-3" *ngIf="postCategories.length > 0">
+        <button
+          id="starCategoryBtn"
+          type="button"
+          [ngClass]="{
+            'active': activeCategory == '',
+            'btn': true,
+            'btn-outline-primary': true
+          }"
+          (click)="switchActiveCategory('')"
+        >
+          <fa-icon [icon]="fasStar"></fa-icon>
+        </button>
+        <button
+          type="button"
+          [ngClass]="{
+            'active': category == activeCategory,
+            'btn': true,
+            'btn-outline-primary': true,
+            'ms-2': true
+          }"
+          *ngFor="let category of postCategories"
+          (click)="switchActiveCategory(category)"
+        >{{ category }}</button>
+      </div>
 
-      <app-loader *ngIf="posts === undefined"></app-loader>
-    </div>
+      <div class="row">
+          <div
+            class="col-md-6 col-lg-4"
+            *ngFor="let post of posts"
+            [hidden]="!isPostVisible(post)"
+          >
+            <app-home-portfolio-item [post]="post"></app-home-portfolio-item>
+          </div>
+      </div>
+    </ng-template>
+
+    <app-loader *ngIf="posts === undefined"></app-loader>
   </div>
 </section>
