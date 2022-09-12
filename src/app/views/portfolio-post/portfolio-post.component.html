@@ -8,15 +8,21 @@
       <h5>{{ post.description }}</h5>
 
       <h5>
-        <span class="badge bg-warning text-dark p-2" *ngIf="post.wip">
-          <fa-icon [icon]="fasTools"></fa-icon>
-          En travaux
+        <span class="badge bg-{{ post.statusColor }} text-{{ badgeTextColor }} p-2">
+          {{ post.statusText }}
         </span>
 
         <span class="badge bg-light text-dark p-2 ms-2" *ngFor="let language of post.languages">
           {{ language.name }}
         </span>
       </h5>
+
+      <div class="mt-3" *ngIf="post.links.length">
+        <a href="{{ link.url }}" target="_blank" class="btn btn-sm btn-light ms-2" *ngFor="let link of post.links">
+          <fa-icon [icon]="link.icon"></fa-icon>
+          {{ link.name }}
+        </a>
+      </div>
     </div>
   </header>
 
