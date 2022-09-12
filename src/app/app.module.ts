@@ -18,6 +18,7 @@ import { PasswordsComponent } from './views/passwords/passwords.component';
 import { FormsModule } from '@angular/forms';
 import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { HomePortfolioItemComponent } from './views/home/home-portfolio-item/home-portfolio-item.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     PortfolioPostComponent,
     PageHeadComponent,
     PasswordsComponent,
+    HomePortfolioItemComponent,
   ],
   imports: [
     BrowserModule,

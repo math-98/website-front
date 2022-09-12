@@ -1,0 +1,12 @@
+<a [routerLink]="['/portfolio/' + post.slug]" class="portfolio-item mx-auto">
+  <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
+    <div class="portfolio-item-caption-content text-center text-white p-2">
+      <strong>{{ post.title }}</strong><br/>
+      {{ post.description }}<br/>
+      <span class="badge rounded-pill bg-{{ badgeBgColor }} text-{{ badgeTextColor }}">
+        {{ post.statusText }}
+      </span>
+    </div>
+  </div>
+  <img class="img-fluid" src="{{ post.coverUrl }}" alt="{{ post.title }}">
+</a>

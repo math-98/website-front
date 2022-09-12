@@ -14,8 +14,8 @@ export class PortfolioService {
 
   public async list(): Promise<any> {
     return new Promise((resolve, reject) => {
-      this.http.get('api/v1/portfolio/list').subscribe(
-        (data: Array<object>) => {
+      this.http.get('posts').subscribe({
+        next: (data: Array<object>) => {
           this.posts = [];
           data.forEach((elm) => {
             this.posts.push(new PortfolioPost(elm));
@@ -23,10 +23,10 @@ export class PortfolioService {
 
           resolve(this.posts);
         },
-        (err) => {
+        error: (err) => {
           reject(err);
-        }
-      );
+        },
+      });
     });
   }
 
@@ -39,8 +39,8 @@ export class PortfolioService {
         }
       }
 
-      this.http.get('api/v1/portfolio/get/' + slug).subscribe(
-        (data: object) => {
+      this.http.get('posts/' + slug).subscribe({
+        next: (data: object) => {
           const post = new PortfolioPost(data);
           if (index === undefined) {
             this.posts.push(post);
@@ -50,10 +50,10 @@ export class PortfolioService {
 
           resolve(post);
         },
-        (err) => {
+        error: (err) => {
           reject(err);
-        }
-      );
+        },
+      });
     });
   }
 }
