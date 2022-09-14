@@ -32,7 +32,7 @@
               "src/styles.scss"
             ],
             "scripts": [
-              "./node_modules/bootstrap/dist/js/bootstrap.min.js"
+              "./node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"
             ],
             "vendorChunk": true,
             "extractLicenses": false,
@@ -104,7 +104,7 @@
               "src/styles.scss"
             ],
             "scripts": [
-              "./node_modules/bootstrap/dist/js/bootstrap.min.js"
+              "./node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"
             ]
           }
         },
@@ -132,5 +132,8 @@
       }
     }
   },
-  "defaultProject": "math98-front"
+  "defaultProject": "math98-front",
+  "cli": {
+    "analytics": false
+  }
 }
