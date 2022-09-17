@@ -1,0 +1,16 @@
+<div>
+  <div class="modal-header">
+    <h4 class="modal-title pull-left">{{ skill.name }}</h4>
+    <button type="button" class="btn-close close pull-right" aria-label="Fermer" (click)="bsModalRef.hide()">
+      <span aria-hidden="true" class="visually-hidden">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <p>{{ skill.description }}</p>
+    <hr/>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-secondary" (click)="bsModalRef.hide()">Fermer</button>
+  </div>
+</div>
+

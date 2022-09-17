@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { DevService } from '../../../services/dev.service';
+import { SkillsService } from '../../../services/skills.service';
 import { faCog, faExclamationCircle } from '@fortawesome/free-solid-svg-icons';
+import { SkillsCategory } from '../../../models/skills-category';
+import { BsModalService, BsModalRef, ModalOptions } from 'ngx-bootstrap/modal';
+import { HomeSkillModalComponent } from '../home-skill-modal/home-skill-modal.component';
+import { Skill } from '../../../models/skill';
 
 @Component({
   selector: 'app-home-skills',
@@ -8,26 +12,47 @@ import { faCog, faExclamationCircle } from '@fortawesome/free-solid-svg-icons';
   styleUrls: ['./home-skills.component.scss'],
 })
 export class HomeSkillsComponent implements OnInit {
-  public languages: object;
+  public skills: Array<SkillsCategory>;
   public fasCog = faCog;
   public fasExclamationCircle = faExclamationCircle;
 
-  constructor(private devService: DevService) {}
+  bsModalRef?: BsModalRef;
+
+  constructor(
+    private skillsService: SkillsService,
+    private modalService: BsModalService
+  ) {}
 
   ngOnInit(): void {
-    this.languages = undefined;
-    this.devService
-      .listLanguages()
-      .then((languages) => {
-        this.languages = languages;
+    this.skills = undefined;
+    this.skillsService
+      .list()
+      .then((skills) => {
+        console.log(skills);
+        this.skills = skills;
 
-        if (languages.length === 0) {
-          console.error('No dev language returned by API!');
+        if (skills.length === 0) {
+          console.error('No skill returned by API!');
         }
       })
       .catch((err) => {
-        console.log(err);
-        this.languages = [];
+        console.error(err);
+        this.skills = [];
       });
+  }
+
+  openSkillModal(skill: Skill) {
+    const initialState: ModalOptions = {
+      initialState: {
+        skill,
+      },
+    };
+    this.bsModalRef = this.modalService.show(
+      HomeSkillModalComponent,
+      initialState
+    );
+    this.bsModalRef.content.closeBtnName = 'Fermer';
+
+    return false;
   }
 }
