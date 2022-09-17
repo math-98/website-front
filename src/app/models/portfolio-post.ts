@@ -1,6 +1,6 @@
 import { Moment } from 'moment';
 import * as moment from 'moment';
-import { DevLanguage } from './dev-language';
+import { Skill } from './skill';
 import { Link } from './link';
 
 export class PortfolioPost {
@@ -17,7 +17,7 @@ export class PortfolioPost {
   public createdAt: Moment;
   public updatedAt: Moment;
 
-  public languages: Array<DevLanguage>;
+  public skills: Array<Skill>;
   public links: Link[];
 
   constructor(data) {
@@ -34,10 +34,10 @@ export class PortfolioPost {
     this.createdAt = moment(data.created_at);
     this.updatedAt = moment(data.updated_at);
 
-    this.languages = [];
-    if (data.languages !== undefined) {
-      data.languages.forEach((language) => {
-        this.languages.push(new DevLanguage(language));
+    this.skills = [];
+    if (data.skills !== undefined) {
+      data.skills.forEach((skill) => {
+        this.skills.push(new Skill(skill));
       });
     }
 
