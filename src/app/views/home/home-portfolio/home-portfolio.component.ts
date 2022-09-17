@@ -10,7 +10,6 @@ import { faExclamationCircle, faStar } from '@fortawesome/free-solid-svg-icons';
 })
 export class HomePortfolioComponent implements OnInit {
   public activeCategory = '';
-  public colSize = 0;
   public postCategories: Array<string>;
   public posts: Array<PortfolioPost>;
   public fasStar = faStar;
@@ -27,10 +26,6 @@ export class HomePortfolioComponent implements OnInit {
       .then((posts) => {
         this.postCategories = Array.from(
           new Set(posts.map((elm) => elm.tags).flat())
-        );
-        this.colSize = Math.max(
-          2,
-          Math.floor(12 / (this.postCategories.length + 1))
         );
 
         this.posts = posts;

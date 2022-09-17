@@ -5,24 +5,29 @@
     </app-title>
 
     <div class="row">
-      <ng-template [ngIf]="languages !== undefined">
-        <div class="alert alert-danger" role="alert" *ngIf="languages.length == 0" style="text-align: center">
+      <ng-template [ngIf]="skills !== undefined">
+        <div class="alert alert-danger" role="alert" *ngIf="skills.length == 0" style="text-align: center">
           <fa-icon [icon]="fasExclamationCircle"></fa-icon>
           Une erreur est survenue lors de la récupération des compétences.
         </div>
 
-        <div class="col-lg-6 mb-5" *ngFor="let langElm of languages | keyvalue">
-          <h1>{{ langElm.key }}</h1>
+        <div class="col-lg-6 mb-5" *ngFor="let skillCategory of skills">
+          <h1>{{ skillCategory.name }}</h1>
 
           <div class="row">
-            <div class="icon" *ngFor="let language of langElm.value">
-              <img src="{{ language.iconUrl }}" alt="{{ language.name }}" title="{{ language.name }}"/>
-            </div>
+            <a
+              href="#"
+              class="icon"
+              (click)="openSkillModal(skill)"
+              *ngFor="let skill of skillCategory.skills"
+            >
+              <img src="{{ skill.iconUrl }}" alt="{{ skill.name }}" title="{{ skill.name }}"/>
+            </a>
           </div>
         </div>
       </ng-template>
 
-      <app-loader color="light" *ngIf="languages === undefined"></app-loader>
+      <app-loader color="light" *ngIf="skills === undefined"></app-loader>
     </div>
   </div>
 </section>

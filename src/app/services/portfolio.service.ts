@@ -6,28 +6,35 @@ import { PortfolioPost } from '../models/portfolio-post';
   providedIn: 'root',
 })
 export class PortfolioService {
+  private listPromise: Promise<any>;
   private posts: Array<PortfolioPost>;
 
-  constructor(private http: HttpClient) {
-    this.posts = [];
-  }
+  constructor(private http: HttpClient) {}
 
   public async list(): Promise<any> {
-    return new Promise((resolve, reject) => {
-      this.http.get('posts').subscribe({
-        next: (data: Array<object>) => {
-          this.posts = [];
-          data.forEach((elm) => {
-            this.posts.push(new PortfolioPost(elm));
-          });
-
+    if (!this.listPromise) {
+      this.listPromise = new Promise((resolve, reject) => {
+        if (this.posts !== undefined) {
           resolve(this.posts);
-        },
-        error: (err) => {
-          reject(err);
-        },
+          return;
+        }
+
+        this.http.get('posts').subscribe({
+          next: (data: Array<object>) => {
+            this.posts = [];
+            data.forEach((elm) => {
+              this.posts.push(new PortfolioPost(elm));
+            });
+
+            resolve(this.posts);
+          },
+          error: (err) => {
+            reject(err);
+          },
+        });
       });
-    });
+    }
+    return this.listPromise;
   }
 
   public async get(slug): Promise<any> {

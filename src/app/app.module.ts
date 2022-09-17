@@ -19,6 +19,8 @@ import { FormsModule } from '@angular/forms';
 import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { HomePortfolioItemComponent } from './views/home/home-portfolio-item/home-portfolio-item.component';
+import { ModalModule } from 'ngx-bootstrap/modal';
+import { HomeSkillModalComponent } from './views/home/home-skill-modal/home-skill-modal.component';
 
 @NgModule({
   declarations: [
@@ -32,6 +34,7 @@ import { HomePortfolioItemComponent } from './views/home/home-portfolio-item/hom
     PageHeadComponent,
     PasswordsComponent,
     HomePortfolioItemComponent,
+    HomeSkillModalComponent,
   ],
   imports: [
     BrowserModule,
@@ -42,6 +45,7 @@ import { HomePortfolioItemComponent } from './views/home/home-portfolio-item/hom
     FontAwesomeModule,
     FormsModule,
     NgMultiSelectDropDownModule.forRoot(),
+    ModalModule.forRoot(),
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   providers: [
