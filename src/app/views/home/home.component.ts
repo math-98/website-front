@@ -29,7 +29,7 @@ export class HomeComponent {
   public fabSteamSymbol = faSteamSymbol;
   public fabDiscord = faDiscord;
 
-  public photo_url = environment.apiBase + '/storage/photo.jpg';
+  public photo_url = environment.photo_url;
 
   constructor(private viewportScroller: ViewportScroller) {}
 
