@@ -1,5 +1,6 @@
 export const environment = {
   apiBase: 'http://localhost',
+  photo_url: '',
   production: false,
 };
 
