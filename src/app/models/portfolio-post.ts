@@ -1,5 +1,3 @@
-import { Moment } from 'moment';
-import * as moment from 'moment';
 import { Skill } from './skill';
 import { Link } from './link';
 
@@ -14,8 +12,8 @@ export class PortfolioPost {
   public statusColor = '';
   public statusText = '';
   public tags = [];
-  public createdAt: Moment;
-  public updatedAt: Moment;
+  public createdAt: Date;
+  public updatedAt: Date;
 
   public skills: Array<Skill>;
   public links: Link[];
@@ -31,8 +29,8 @@ export class PortfolioPost {
     this.statusColor = data.status_color;
     this.statusText = data.status_text;
     this.tags = data.tags.map((elm) => elm.name);
-    this.createdAt = moment(data.created_at);
-    this.updatedAt = moment(data.updated_at);
+    this.createdAt = new Date(data.created_at);
+    this.updatedAt = new Date(data.updated_at);
 
     this.skills = [];
     if (data.skills !== undefined) {
