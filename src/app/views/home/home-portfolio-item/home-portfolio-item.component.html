@@ -1,9 +1,9 @@
 <a [routerLink]="['/portfolio/' + post.slug]" class="portfolio-item mx-auto">
   <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
     <div class="portfolio-item-caption-content text-center text-white p-2">
-      <strong>{{ post.title }}</strong><br/>
-      {{ post.description }}<br/>
-      <span class="badge rounded-pill bg-{{ badgeBgColor }} text-{{ badgeTextColor }}">
+      <strong>{{ post.title }}</strong>
+      <p class="fs-5 my-2">{{ post.description }}</p>
+      <span class="badge rounded-pill bg-{{ badgeBgColor }} text-{{ badgeTextColor }} fs-6">
         {{ post.statusText }}
       </span>
     </div>
