@@ -4,7 +4,6 @@ import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { InlineSVGModule } from 'ng-inline-svg-2';
 import { LoaderComponent } from './shared/loader/loader.component';
 import { HomeComponent } from './views/home/home.component';
 import { TitleComponent } from './shared/title/title.component';
@@ -40,7 +39,6 @@ import { HomeSkillModalComponent } from './views/home/home-skill-modal/home-skil
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    InlineSVGModule.forRoot(),
     HttpClientModule,
     FontAwesomeModule,
     FormsModule,
