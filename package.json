@@ -25,7 +25,7 @@
     "@schematics/angular": "14.2.4",
     "bcryptjs": "2.4.3",
     "bootstrap": "5.2.1",
-    "bufferutil": "4.0.6",
+    "bufferutil": "4.0.7",
     "fibers": "5.0.3",
     "html-webpack-plugin": "5.5.0",
     "md5": "2.3.0",
