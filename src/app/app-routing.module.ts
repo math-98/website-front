@@ -34,7 +34,6 @@ const routes: Routes = [
 @NgModule({
   imports: [
     RouterModule.forRoot(routes, {
-      relativeLinkResolution: 'legacy',
       scrollOffset: [0, 52],
     }),
   ],
