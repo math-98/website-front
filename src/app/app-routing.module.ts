@@ -29,6 +29,10 @@ const routes: Routes = [
       description: '',
     },
   },
+  {
+    path: '**',
+    redirectTo: '/',
+  },
 ];
 
 @NgModule({
